@@ -1,12 +1,12 @@
 {
   "name": "latex",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "LaTeX automation tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Marcus A Hansen",
   "license": "ISC",
   "dependencies": {
     "gulp": "^3.9.1",
