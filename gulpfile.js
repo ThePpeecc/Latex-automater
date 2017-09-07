@@ -5,7 +5,7 @@ const gulp = require('gulp'),
 
 gulp.task('latex', function() {
 	const options = {
-    continueOnError: false, // default = false, true means don't emit error event
+    continueOnError: true, // default = false, true means don't emit error event
     pipeStdout: false, // default = false, true means stdout is written to file.contents
     customTemplatingThing: "test" // content passed to gutil.template()
   }, reportOptions = {
@@ -19,6 +19,10 @@ gulp.task('latex', function() {
     .pipe(exec('/Library/TeX/texbin/pdflatex <%= file.path %>', options))
 		.pipe(exec('mv *.log ./build', options))
 		.pipe(exec('mv *.aux ./build', options))
+		.pipe(exec('mv *.fdb_latexmk ./build', options))
+		.pipe(exec('mv *.fls ./build', options))
+		.pipe(exec('mv *.toc ./build', options))
+		.pipe(exec('mv *.out ./build', options))
 		.pipe(exec('mv *.pdf ./build', options))
     .pipe(exec.reporter(reportOptions))
 })
